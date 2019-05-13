@@ -14,7 +14,7 @@ public class SingleExecutorDemo {
     public static void main(String[] args) {
         ExecutorService newSingleThreadExecutor = Executors.newSingleThreadExecutor();
         for (int i = 0; i < 10; i++) {
-            int temp = i;
+            final int temp = i;
             newSingleThreadExecutor.execute(new Runnable() {
                 @Override
                 public void run() {

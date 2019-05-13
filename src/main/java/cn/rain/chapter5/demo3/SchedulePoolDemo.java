@@ -17,7 +17,7 @@ public class SchedulePoolDemo {
         // 定时线程池首先它是定长的，这里我们用系统可用线程数量来指定
         ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(availableProcessors);
         for (int i = 0; i < 10; i++) {
-            int temp = i;
+            final int temp = i;
             newScheduledThreadPool.schedule(new Runnable() {
                 @Override
                 public void run() {

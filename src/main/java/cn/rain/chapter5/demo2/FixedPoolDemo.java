@@ -17,7 +17,7 @@ public class FixedPoolDemo {
         System.out.println("系统可用的线程数为：" + Runtime.getRuntime().availableProcessors());
         ExecutorService newFixedThreadPool = Executors.newFixedThreadPool(3);
         for (int i = 0; i < 10; i++) {
-            int temp = i;
+            final int temp = i;
             newFixedThreadPool.execute(new Runnable() {
                 @Override
                 public void run() {

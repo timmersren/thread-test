@@ -21,7 +21,7 @@ public class CachePoolDemo {
         // 我们通过调用ExecutorService的execute(Runnable target)方法，
         // 将要执行的目标（即Runnable接口的实现类，重写了run方法）传入，之后线程池会帮我们创建线程并执行run方法。
         for (int i=0; i < 100; i++){ //这里我们循环100次，即执行100个target（任务）
-            int temp = i;
+            final int temp = i;
             newCachedThreadPool.execute(new Runnable() {
                 @Override
                 public void run() {

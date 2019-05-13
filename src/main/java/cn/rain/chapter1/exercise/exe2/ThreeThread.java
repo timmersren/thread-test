@@ -12,7 +12,7 @@ package cn.rain.chapter1.exercise.exe2;
 @SuppressWarnings("all")
 public class ThreeThread {
     public static void main(String[] args) {
-        Thread t1 = new Thread(new Runnable() {
+        final Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
                 for (int i = 0; i < 100; i++) {
@@ -22,7 +22,7 @@ public class ThreeThread {
         });
         t1.start();
 
-        Thread t2 = new Thread(new Runnable() {
+        final Thread t2 = new Thread(new Runnable() {
             @Override
             public void run() {
                 // 在t2的业务逻辑执行前，调用t1.join。
