@@ -18,7 +18,7 @@ public class StaticSynchronizedThread implements Runnable {
         if (flag) {
             while (train1Count > 0) {
                 // 静态同步函数使用的锁是该函数所在类的.class 对象
-                // 可以使用类名.class获取该锁（如下），亦可使用getClass()方法获取。
+                // 可以使用类名.class获取该锁（如下），亦可使用this.getClass()方法获取。
                 synchronized (StaticSynchronizedThread.class) {
                     if (train1Count > 0) {
                         try {

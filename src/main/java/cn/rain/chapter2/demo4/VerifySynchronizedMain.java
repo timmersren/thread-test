@@ -22,8 +22,8 @@ public class VerifySynchronizedMain {
             e.printStackTrace();
         }
 
-        // t1开启后由于flag的默认值是true，因此t1会进入同步代码块的while循环
-        // 在这里将flag设置为false然后再开启t2，这会让t2进入同步函数的while循环
+        // t1开启后由于flag的默认值是true，因此t1会进入【同步代码块】的while循环
+        // 在这里将flag设置为false然后再开启t2，这会让t2进入【同步函数】的while循环
         verifyThread.flag = false;
         t2.start();
     }
