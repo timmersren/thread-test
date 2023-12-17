@@ -1,5 +1,7 @@
 package cn.rain.chapter1.demo3;
 
+import java.util.concurrent.FutureTask;
+
 /**
  * description: 通过demo2中实现Runnable接口的匿名内部类方式创建线程。
  * @author 任伟
@@ -7,18 +9,16 @@ package cn.rain.chapter1.demo3;
  */
 @SuppressWarnings("all")
 public class Main {
-    public static void main(String[] args) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                for (int i=0; i < 10; i++){
-                    System.out.println("t3 run....【" + i + "】");
-                }
-            }
-        }).start();
+    public static void main(String[] args) throws Exception {
 
-        for (int i = 0; i < 10; i++) {
-            System.out.println("Main thread run...【" + i + "】");
-        }
+        Mythread3 mythread3 = new Mythread3();
+        FutureTask<Integer> ft = new FutureTask<>(mythread3);
+        Thread t3 = new Thread(ft);
+        t3.start();
+
+        Integer result = ft.get();
+
+        System.out.println("task result is : " + result);
+        System.out.println("main is end...");
     }
 }
